@@ -1,77 +1,58 @@
-﻿# MATLAB Spring 2014 – Research Plan (Template)
-(text between brackets to be removed)
+﻿# MATLAB Spring 2014 – Research Plan 
 
 > * Group Name: intersection_crowd_behavior
 > * Group participants names: Forni Luca; Jenelten Fabian
-> * Project Title: Intersection Crowd Behavior
-
-## General Introduction
-
-Every one knows the deaccelerating effect of overcrowded pedestrian streets and intersection: People crossing a street or walking the oposite direction jam the way of other people. Accordingly, if many people try to cross the street and if many people walk on different directions at the same time the dynamic gets more and more inert.
-The purpose of our project will be to model and simulate that behavior. By changing the conditions we will try to optimate its dynamic. Usgint the synthesized data we will try to find a realizable solution that can be convert to real urban problems
+> * Project Title: Simulation and optimization of pedestrian flow at an intersection (FS2014)
 
 
-## The Model
-Intersection:
-Our model will contain an intersection with an variable number of branches.
+## Introduction
 
-Pedestrians:
-Each pedestrian will have an idea of where he want to go but not of how he will reach his target. Thus, he will decides his next step continuously. The pedestrian will be in contact with his enviroment and will be able to comminicate with other pedestrians.
-The people will, in general, follow both directions, forwards and backwars.
-
-
-Environment:
-> * disturbence such as crossing cars or trams.
-
-
-Initial conditions:
-> * number of people starting at the beginning of each branch
-> * size of the streets and the intersection
-> * number of brachnes
-
-measurements:
-> * mass flow trough each branch
-> * avarage velocity that the people have to cross the intersection
-> * critical pedestrian density (density at which the avarge velocity is less than 10% of walking speed)
-
-Control "Parameters" (optimization methods)
-> * Additional leading elements such as roundabouts, traffic lights, guide trajectories
+Everybody who once walked past a buisy intersection knows the struggle of constantly trying 
+to maintain his moving direction amongst people walking in every direction possible.
+It is hard to not get influenced by other pedestrians, which by doing so leads to a loss of the proper
+path.
+In our simulation we want to test and analyze the dynamics of a crowded intersection and determine if 
+the flow of people through this intersection can be maximized by applying rules that already exist in 
+traffic regulations for vehicles on the road. 
+We managed to apply some ground rules to each pedestrian so that it can look around to judge the 
+environmental situation dictated by other pedestrians around him and take action , i.e. not colliding 
+with other people on his way to his specific target finding a way through the crowd to his destination
+point.
+It can be observed that this individually based behavior can become problematic if the broadness of
+the road shrinks to a critical point or the density of the pedestrians arises to a point where jams
+are formed and groups of people get stuck decreasing furthermore the fluidity of future passages by
+other pedestrians through that jam. We think that applying some non-individualistic ground rules can
+significantly improve the dynamics of the crowd and the speed at which a person can cross the 
+intersection.
 
 
+## Fundamental question
+
+Which, if there is any, ground rule or law that is currently active in vehicle traffic for regulating
+the flow at an intersection can be applyed to pedestrians and help improve what was an individualistic
+organisation.
 
 
-## Fundamental Questions
+## Expected results
 
-> * Which optimization method can relieve overcrowded intersections and yielding a better pedestrian flow?
-> * Which method is the most efficient one?
-> * Are those optimizations realizable?
-> * Is the number of brachnes influencing the result?
-> * How does disturbaces influence the systems dynamic?
+We expect to see an improvement in fluidity in the crowd due to universal laws. Everybody will follow 
+the ground rule first, only after that the individual behavior comes into play. 
 
 
-## Expected Results
+## Methods
 
-First of all, we will find a clear correlation between density and speed. Other results might be:
-With a low pedestrian density the the system with the fastest dynamic will be the natural uncontrolled intersection. Each controlling element will lead to a decreasing flow rate.  
-If the pedestrian density reaches a specific value, the avarage velocity and the pedestrian flow can be increased using roundabouts. Traffic lights might improve the dynamic slightly.
-Controlling the trajectories will yield in the best reusults.  This method is a theoretical solution only since people can not be forced to follow a specific trajectory. 
-
-
-
-## References 
-
-Papers:
-> * Analytical Approach to Continuous and Intermittent Bottleneck Flows -- Dirk Helbing and Anders Johansson
-> * Dynamics of crowd disasters: An empirical study -- Dirk Helbing and Anders Johansson
-> * Simulating dynamical features of escape panic -- Dirk Helbing, Illes Farkas³ & Tamas Vicsek
-
-Projects from previous years:
-> * Intersections with pedestrians -- Marcel Arikan, Nuhro Ego, Ralf Kohrt --  https://github.com/nuhro/Intersection-Problem
+We used a agent agent based simulation for our simulation. This is applied to a metod for simulating 
+pedestrians called "social forces". This simple method states that In reality we tend to conserve our 
+nearest personal space to ourselves. We don’t feel comfortable sharing this space with other people, 
+except the conditions of our environment absolutely forces us to. It is possible to implement this 
+idea by applying forces to each agent-to-agent interaction. If the distance between agents is large 
+the force will have little or no impact on the behavior of singles. According to that the more two 
+agents get close to one another the more this force increases and tends the two agents to increase 
+the distance between each other. In this way we can simultaneously evaluate the behavior of the 
+individual and the avoidance of objects, i.e. agents, on its path.
 
 
-## Research Methods
+## References
 
-
-We will use the Cellular Automata model as the major method. 
-
-
+[1]  Ramin Mehran, Alexis Oyama, Mubarak Shah (2009), "Abnormal crowd behavior detection using 
+social force model." 
