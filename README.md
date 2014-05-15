@@ -4,55 +4,66 @@
 > * Group participants names: Forni Luca; Jenelten Fabian
 > * Project Title: Simulation and optimization of pedestrian flow at an intersection (FS2014)
 
+## General Introduction
+Every one knows the de-accelerating effect of overcrowded pedestrian streets and intersections:
+People crossing a street or walking the opposite direction jam the way of other people. Accordingly,
+if many people try to cross the street and if many people walk on different directions at the same
+time, the dynamic gets more and more inert. Sometimes even total blocked pedestrian streets occur.
+The purpose of our project will be to model and simulate this behaviour. By changing the conditions
+we will try to optimize its dynamic. Using the synthesized data we will try to find a realizable
+solution that can be convert to real urban problems.
 
-## Introduction
+## The Model
+Intersection:
+Our model will contain an intersection with exactly four branches. 
 
-Everybody who once walked past a buisy intersection knows the struggle of constantly trying 
-to maintain his moving direction amongst people walking in every direction possible.
-It is hard to not get influenced by other pedestrians, which by doing so leads to a loss of the proper
-path.
-In our simulation we want to test and analyze the dynamics of a crowded intersection and determine if 
-the flow of people through this intersection can be maximized by applying rules that already exist in 
-traffic regulations for vehicles on the road. 
-We managed to apply some ground rules to each pedestrian so that it can look around to judge the 
-environmental situation dictated by other pedestrians around him and take action , i.e. not colliding 
-with other people on his way to his specific target finding a way through the crowd to his destination
-point.
-It can be observed that this individually based behavior can become problematic if the broadness of
-the road shrinks to a critical point or the density of the pedestrians arises to a point where jams
-are formed and groups of people get stuck decreasing furthermore the fluidity of future passages by
-other pedestrians through that jam. We think that applying some non-individualistic ground rules can
-significantly improve the dynamics of the crowd and the speed at which a person can cross the 
-intersection.
+Pedestrians:
+Each pedestrian will have an idea of where he want to go. He will follow a preferable trajectory. He can, however, decide to leave this trajectory and
+even change its direction if necessary. The pedestrian will be in contact with his environment and with other pedestrians by the so called social forces.
 
 
-## Fundamental question
+Environment:
+> * boundary of the intersection: pedestrian cannot pass this borders.
 
-Which, if there is any, ground rule or law that is currently active in vehicle traffic for regulating
-the flow at an intersection can be applyed to pedestrians and help improve what was an individualistic
-organisation.
+Initial conditions:
+> * number of branches: four
+> * shape of the intersection
+> * size of the streets and the intersection
 
+Measurements:
+> * Average time effort to reach the final target.
+> * Average velocity.
+> * Averaged number of pedestrians walking slower than 0.2 m/s. This value indicates the loss of dynamic.
+> * Averaged velocity of all pedestrian with preferred velocity >1.5. This value compared with the average velocity answers the question whether "stressing" does help or not.
+> * Grid matrix with velocity_distribution.
 
-## Expected results
+Control "Parameters" (optimization methods)
+> * Generating rate: probability for a pedestrian to appear at one branch of the intersection
+> * Additional leading elements such as roundabouts, traffic lights and additional borders
 
-We expect to see an improvement in fluidity in the crowd due to universal laws. Everybody will follow 
-the ground rule first, only after that the individual behavior comes into play. 
+## Fundamental Questions
+> * Which optimization method can relieve overcrowded intersections and yielding a better pedestrian flow?
+> * Which method is the most efficient one?
+> * Is the natural human self organization better than using optimization methods?
 
+## Expected Results
+First of all, we will find a clear correlation between density and speed. Other results might involve some optimization structures:
+> * With a low pedestrian density the system with the fastest dynamic will be the natural, uncontrolled intersection.
+Each controlling element will lead to a decreasing flow rate.  
+> * If the pedestrian density reaches a specific value, the average velocity and the
+pedestrian flow can be increased using roundabouts. Traffic lights might improve the dynamic slightly.
+> * Controlling the trajectories (using additional boundaries) will probably yield in the best results.
 
-## Methods
-
-We used a agent agent based simulation for our simulation. This is applied to a metod for simulating 
-pedestrians called "social forces". This simple method states that In reality we tend to conserve our 
-nearest personal space to ourselves. We don’t feel comfortable sharing this space with other people, 
-except the conditions of our environment absolutely forces us to. It is possible to implement this 
-idea by applying forces to each agent-to-agent interaction. If the distance between agents is large 
-the force will have little or no impact on the behavior of singles. According to that the more two 
-agents get close to one another the more this force increases and tends the two agents to increase 
-the distance between each other. In this way we can simultaneously evaluate the behavior of the 
-individual and the avoidance of objects, i.e. agents, on its path.
+## Research Methods
+We will use an agent based simulation using a social force method. A social force is a physical meaningless force that 
+indicates the "need" to arrive to somewhere or to evade something or someone. The forces will be derived by estimating a reasonable
+magnitude with a logical direction. The magnitude will in the first step depend on unknown parameters. To find those parameters we will
+rebuilt a straight road of an experimental video [2] and adjust the parameters until the pedestrians walk close to the pedestrians 
+trajectory in reality. Of course, such an optical evaluation will not produce the best possible model (as a professional video tracking would be),
+but we expect an sufficient realistic pedestrian behaviour.
 
 
 ## References
-
-[1]  Ramin Mehran, Alexis Oyama, Mubarak Shah (2009), "Abnormal crowd behavior detection using 
+> *[1]  Ramin Mehran, Alexis Oyama, Mubarak Shah (2009), "Abnormal crowd behavior detection using 
 social force model." 
+> *[2] Pedestrian-dynamics experiment -- lane formation in counter flow: http://www.youtube.com/watch?v=J4J__lOOV2E
