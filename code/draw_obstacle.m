@@ -22,7 +22,7 @@ load('variables', 'bounds') % load struct profile
 
 % draw profile
 profile = bounds.profile;
-patch(profile(1,:), profile(2,:), [1 1 1], 'LineWidth', 2)
+patch(profile(2,:), profile(1,:), [1 1 1], 'LineWidth', 2);
 
 % draw inner circle
 if with_inner_radius

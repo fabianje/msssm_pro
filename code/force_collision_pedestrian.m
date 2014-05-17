@@ -21,7 +21,7 @@ f = [0;0];  % assume no interaction
 %   parameter "density" can fail becouse we use the efficient cell storage
 %   method. An other reason for the failur of "density" might be a small
 %   cut off (which depends on the density on the last iterations)
-if density>2 || norm(v2)<0.05
+if density>2 || norm(v2)<0.1
     return
 end
 
@@ -62,26 +62,10 @@ end
 
 % Decide in which direction the pedestrian want to evade/ overtake
 cos_alpha = [1,0]*r12/(norm(r12)); % angle between x-axis and r12 
-if abs(cos_alpha) > 0.9 % special case if x-axis is approximalty parallel with r12. 
-    % alpha depends on the coordinate system and has therefore no physical
-    % meaning. However, this special case solves the problem of
-    % "oscilating pedestirans", that is, if y-component of the neighboour's
-    % velocity vector changes its sign and the current pedestrian reacts
-    % with changing the evading/overtaking direction (sometomes this
-    % yields in abstruse situatios)
-    e = ([r12(2); -r12(1)])/norm(r12); % evade/ overtake to the righ
-elseif R12(2)>=0 % make somthing for this case (random implemented)
-    if V2(2)<=0
+if R12(2)>=0 % make somthing for this case (random implemented)
        e = ([r12(2); -r12(1)])/norm(r12); % evade/ overtake to the right
-    else
-        e = ([-r12(2); r12(1)])/norm(r12); %evade/ overtake to the left
-    end
 else % do exactly the oppposite
-    if V2(2)<=0
-        e = ([r12(2); -r12(1)])/norm(r12); % evade/ overtake to the right
-    else
         e = ([-r12(2); r12(1)])/norm(r12); %evade/ overtake to the left
-    end
 end
 % Notice: This algorithm works properly for evading and overtaking
 % siuations such that the pedestrians do not make the same decision (
@@ -111,9 +95,7 @@ if Theta == 1
     % maximum Amplitude depends linearly on number of force influences 
     % the force potential is assumed to be a function of Delta_t with a
     % weakly exponentially decreasing potential and without cut-off.
-    f = A1*exp(-0.001*Delta_t.^2) .*e;
-elseif norm(v1) == 0 % special case if two pedestrians are blocked
-    f = A1.*e;
+    f = A1*exp(-6*Delta_t.^2) .*e;
 else
     f = [0;0];
 end
@@ -122,7 +104,6 @@ if isnan(norm(f))
     warning('force is NaN')
     f=[0;0] ;
 end
-
 
 end
 

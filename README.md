@@ -64,6 +64,6 @@ but we expect an sufficient realistic pedestrian behaviour.
 
 
 ## References
-> *[1]  Ramin Mehran, Alexis Oyama, Mubarak Shah (2009), "Abnormal crowd behavior detection using 
+> * [1]  Ramin Mehran, Alexis Oyama, Mubarak Shah (2009), "Abnormal crowd behavior detection using 
 social force model." 
-> *[2] Pedestrian-dynamics experiment -- lane formation in counter flow: http://www.youtube.com/watch?v=J4J__lOOV2E
+> * [2] Pedestrian-dynamics experiment -- lane formation in counter flow: http://www.youtube.com/watch?v=J4J__lOOV2E
