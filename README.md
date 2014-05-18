@@ -2,7 +2,7 @@
 
 > * Group Name: intersection_crowd_behavior
 > * Group participants names: Forni Luca; Jenelten Fabian
-> * Project Title: Simulation and optimization of pedestrian flow at an intersection (FS2014)
+> * Project title: Simulation and optimization of pedestrian flow at an intersection (FS2014)
 
 ## General Introduction
 Every one knows the de-accelerating effect of overcrowded pedestrian streets and intersections:
