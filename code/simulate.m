@@ -19,7 +19,7 @@ velocity_distribution = zeros(N,M);
 
 if with_video
     hFig = figure;
-    set(hFig, 'Position', [500 60 750 750])
+    set(hFig, 'Position', [500 60 740 740])
 else
     figure
 end

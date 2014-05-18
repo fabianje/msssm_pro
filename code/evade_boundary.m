@@ -25,6 +25,7 @@ dist_crit = dist_critical{2};
 
 x=x_new;        % assumption
 security = 1.3; % security factor
+
     
 % exclude all cases, where no touching of boundary points expecte
 cos_alpha = dist_crit'*distance/(norm(dist_crit)*norm(distance));

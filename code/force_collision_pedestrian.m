@@ -60,8 +60,7 @@ if V1(2)>10^-5 % check if transformation was successful
     warning('Coordinate transformation failed')
 end
 
-% Decide in which direction the pedestrian want to evade/ overtake
-cos_alpha = [1,0]*r12/(norm(r12)); % angle between x-axis and r12 
+% Decide in which direction the pedestrian want to evade/ overtake 
 if R12(2)>=0 % make somthing for this case (random implemented)
        e = ([r12(2); -r12(1)])/norm(r12); % evade/ overtake to the right
 else % do exactly the oppposite
@@ -90,12 +89,12 @@ end
 % Now derive a force that describes the interaction behavior
 % > the bigger the expected time until collision uccures is, the bigger the
 %   influence becomes
-A1 = 6000/(density^2+1);
+A1 = 2000/(density^2+1);
 if Theta == 1
     % maximum Amplitude depends linearly on number of force influences 
     % the force potential is assumed to be a function of Delta_t with a
     % weakly exponentially decreasing potential and without cut-off.
-    f = A1*exp(-6*Delta_t.^2) .*e;
+    f = A1*exp(-0.1*Delta_t.^2) .*e;
 else
     f = [0;0];
 end
@@ -105,5 +104,6 @@ if isnan(norm(f))
     f=[0;0] ;
 end
 
+ 
 end
 

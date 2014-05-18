@@ -48,7 +48,5 @@ if isnan(norm(f))
     f=[0;0] ;
 end
 
-
-
 end
 

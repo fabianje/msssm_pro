@@ -59,13 +59,13 @@ switch type
     %----------------------------------------------------------------------
     case 1 % straight path
         % size of the grid
-        L_grid = 10;        % [m]
-        W_grid = 4;        % [m]
+        L_grid = 6;        % [m]
+        W_grid = 3;        % [m]
         % grid dimesions
         N = W_grid/Nx;
         M = L_grid/Ny;
         % Width of the streets
-        W_street = 3; %[m]
+        W_street = 2.5; %[m]
         % characteristic points of the intersection
         ay = floor(0.5*N - W_street/(2*Ny));
         by = floor(0.5*N + W_street/(2*Ny));
@@ -207,10 +207,10 @@ switch type
                 ly = round(ay*0.8);
             end
 
-            Grid(N/2-wx/2:N/2+wx/2,1:lx) = inf; 
-            Grid(N/2-wx/2:N/2+wx/2,M-lx:M) = inf;
-            Grid(1:ly,M/2-wx/2:M/2+wx/2) = inf; 
-            Grid(N-ly:N,M/2-wx/2:M/2+wx/2) = inf;
+            Grid(round(N/2-wx/2):round(N/2+wx/2),1:lx) = inf; 
+            Grid(round(N/2-wx/2):round(N/2+wx/2),M-lx:M) = inf;
+            Grid(1:ly,round(M/2-wx/2):round(M/2+wx/2)) = inf; 
+            Grid(N-ly:N,round(M/2-wx/2):round(M/2+wx/2)) = inf;
             
             % lines pointing from center of the intersection to the outside
             line_1 = [[N/2;lx], [N/2;1]];

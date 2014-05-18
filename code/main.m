@@ -5,9 +5,6 @@ format compact
 
 
 
-
-
-
 %==========================================================================
 % Parameters
 %==========================================================================
@@ -26,7 +23,7 @@ Nx = 0.05;                  % [m] in x-direction
 Ny = 0.05;                  % [m] in y-direction
 
 % Width of lines
-W_line = 0.1;               % [m]
+W_line = 0.003;               % [m]
 
  
 % SIMULATION
@@ -37,7 +34,7 @@ W_line = 0.1;               % [m]
 update_type = 1;
 
 dt          = 0.05;         % [s] integration step
-t_end       = 50;          % [s] simulation time
+t_end       = 55;          % [s] simulation time
 
 with_graphic = true;        % if true a graphical output is obtained
 with_video   = true;        % if true a video called 'pedestrian_simulation.avi is generated
@@ -46,7 +43,7 @@ with_video   = true;        % if true a video called 'pedestrian_simulation.avi 
 % PEDESTRIANS
 %--------------------------------------------------------------------------
 r = 0.2;                    % "radius" of each pedestrian
-w = 0.003;                  % possibility that pedestrian is generatated
+w = 0.005;                  % possibility that pedestrian is generatated
 
 % Each pedestrian is located in a cell with size interaction_distance^2.
 % All pedestrian recognize neighbour in this cell and in 8 neighbour cells.
@@ -70,7 +67,7 @@ color_set = 2;
 % COMMON CONTROLL PARAMETERS
 %--------------------------------------------------------------------------
 % maximum number of pedestrians that are allowed on the grid
-p_max = 10000;
+p_max = 1000000;
 
 % intersection type
 %   >> 1: straight path (long and narrow): Use this to adjust the
@@ -87,17 +84,17 @@ intersetction_type = 2;
 %   >> with_traffic_lights: Use traffic lights. One traffic light of four
 %   is green. Use number_of_traffic_lights_red to define how many traffic
 %   lights are red at the same time (number between 1 and 3).
-with_roundabout     = false;
+with_roundabout     = true;
 with_4_roundabouts  = false;
-with_inner_radius   = false; 
-with_middle_line    = false;
+with_inner_radius   = true; 
+with_middle_line    = true;
 with_traffic_lights = false;
 roundabout_radius   = 1.4;            % [m] radius of the single reoundabout
-roundabout_4_radius = 0.2;          % [m] radius of the four roundabouts
-super_radius        = 2.5;            % [m] used to adjust the position of the 4 roundabouts
+roundabout_4_radius = 0.4;          % [m] radius of the four roundabouts
+super_radius        = 2;            % [m] used to adjust the position of the 4 roundabouts
 intersection_radius = 4;            % [m]
-traffic_light_time  = 7;           % [s] change traffic lights after this time
-traffic_light__time_closed = 3;     % [s] time in which all brached are closed
+traffic_light_time  = 10;           % [s] change traffic lights after this time
+traffic_light__time_closed = 5;     % [s] time in which all brached are closed
 number_of_traffic_lights_red = 2;   % [s] number of red traffic light (1,2,3)
 % Important notes:
 %   (1) all features are only applicable if intersection_type is chosen

@@ -121,6 +121,7 @@ end
 %--------------------------------------------------------------------------
 % FIND GLOBAL MINIMUM
 dist_min = [N; M];
+p = [];
 for k=1:4
     distance = distance_saver(1,k);
     if distance>0 && distance<norm(dist_min);
